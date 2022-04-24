@@ -1,8 +1,8 @@
 package com.devsuperior.movie.entities;
 
-import javax.persistence.Embedded;
+
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -10,8 +10,7 @@ import javax.persistence.Table;
 public class Score  {
 	
 
-	@Embedded
-	@Id
+	@EmbeddedId
 	private ScorePk id = new ScorePk();
 	
 	private Double value;
