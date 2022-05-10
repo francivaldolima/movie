@@ -1,4 +1,3 @@
-import { type } from "@testing-library/user-event/dist/type";
 import axios, { AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,14 +8,17 @@ import "./styles.css";
 
 type Props = {
   movieId: string;
-};
+}
+
 function FormCard({ movieId }: Props) {
+
   const navigate = useNavigate();
 
   const [movie, setMovie] = useState<Movie>();
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/movies/${movieId}`).then((response) => {
+    axios.get(`${BASE_URL}/movies/${movieId}`)
+    .then(response => {
       setMovie(response.data);
     });
   }, [movieId]);
@@ -41,10 +43,10 @@ function FormCard({ movieId }: Props) {
       },
     };
 
-    axios(config).then((response) => {
+    axios(config).then(response => {
       navigate("/");
     });
-  };
+  }
 
   return (
     <div className="dsmovie-form-container">
